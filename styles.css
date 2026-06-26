@@ -1,17 +1,45 @@
+/* Restablecer márgenes para evitar barras de desplazamiento */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    margin: 30px;
-    padding: 5px;
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Permite crecer si el contenido es muy alto */
+    padding: 20px;
+    /* Margen de seguridad en pantallas móviles */
+    background-color: #121212;
 }
 
 .card {
-    background-color: rgb(61, 176, 48);
+    background-color: #050505;
+    color: #00ffcc;
     border-radius: 25px;
+
+    /* Reglas Clave para Responsividad */
+    width: 100%;
+    /* Ocupa todo el ancho disponible en móviles */
+    max-width: 400px;
+    /* Evita que se estire demasiado en pantallas grandes */
+
+    overflow: hidden;
+    /* Obliga a la imagen a respetar las esquinas redondeadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.card-img-top{
-    padding: 0;
-    margin: 0;
-    border-radius: 25px;
+.card-img-top {
+    display: block;
+    width: 100%;
+    /* Se adapta al ancho de la tarjeta */
+    height: auto;
+    /* Mantiene la proporción original de la imagen */
+    object-fit: cover;
+    /* Evita que la imagen se distorsione */
 }
